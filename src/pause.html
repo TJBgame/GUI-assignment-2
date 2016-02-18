@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+    <head>
+        <title>CAR RACING</title>
+        <style>            
+            canvas
+            {
+                display: block;
+                margin: auto;
+                border-style: outset;
+                border-width: 10px;
+            }
+            body
+            {
+                text-align: center;
+                margin: auto;
+                background-color: darkgray;
+            }
+            #carRacing
+            {
+                font-size: 300%;
+                font-family: Impact;
+                color: crimson;
+                position:absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+            }
+            #start
+            {
+                position: absolute;
+                top: 25%;
+            }
+            #garage
+            {
+                position: absolute;
+                top: 32.5%;
+            }
+            #controls
+            {
+                position: absolute;
+                top: 40%;
+            }
+            #setting
+            {
+                position: absolute;
+                top: 47.5%;
+            }
+            #hud
+            {
+                position: absolute;
+                top: 55%;
+            }
+            #quit
+            {
+                position: absolute;
+                top: 62.5%;
+            }
+            #backGame
+            {
+                position: absolute;
+                top: 62.5%;
+            }
+            .buttonStyle
+            {
+                left: 0;
+                right: 0;
+                margin: auto;
+                font-size: 20px;
+                border-radius: 8px;
+                width: 200px;
+                background-color:brown;
+                color: aliceblue;
+                text-decoration: none;
+                overflow: hidden;
+                cursor: pointer;
+            }
+            .buttonStyle:after {
+                content: "";
+                background: white;
+                display: block;
+                position: absolute;
+                padding-top: 300%;
+                padding-left: 350%;
+                margin-left: -20px!important;
+                margin-top: -120%;
+                opacity: 0;
+                transition: all 1s;
+            }
+            .buttonStyle:active:after {
+                padding: 0;
+                margin: 0;
+                opacity: 1;
+                transition: 0s;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <canvas id="game" width="912" height="570"></canvas>
+        <p id="carRacing">PAUSE GAME</p>
+        <button id="start" class="buttonStyle" onclick="delay('start.html',500)">RESUME GAME</button>
+        <button id="garage" class="buttonStyle" onclick="delay('start.html',500)">RESTART GAME</button>
+        <button id="controls" class="buttonStyle" onclick="delay('setting.html',500)">SETTING</button>
+        <button id="setting" class="buttonStyle" onclick="delay('hud.html',500)">HUD</button>
+        <button id="hud" class="buttonStyle" onclick="delay('menu.html',500)">BACK TO MENU</button>
+        <button id="backGame" class="buttonStyle" onclick ="delay('start.html',500)">BACK</button>
+        <script>
+            var canvas = document.getElementById("game");
+            var draw = canvas.getContext("2d");
+            var image = new Image();
+            
+            image.addEventListener("load", loadHandler, false);
+            image.src = "../images/pause.jpg";
+
+            function loadHandler(){
+                draw.drawImage
+                (
+                    image,0,0,912,570
+                );
+            }
+            
+            function delay(url,time){
+                setTimeout("location.href='" + url +"'", time);
+            }
+         
+        </script>
+    </body>
+</html>

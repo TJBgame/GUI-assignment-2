@@ -1,0 +1,204 @@
+<!doctype html>
+<html>
+    <head>
+        <title>CAR RACING</title>
+        <style>            
+            canvas
+            {
+                display: block;
+                margin: auto;
+                border-style: outset;
+                border-width: 10px;
+            }
+            body
+            {
+                text-align: center;
+                margin: auto;
+                background-color: darkgray;
+            }
+            #carRacing
+            {
+                font-size: 300%;
+                font-family: Impact;
+                color: crimson;
+                position:absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+            }
+            .a
+            {
+                font-size: 150%;
+                background-color: rgba(0,0,0,0.5);
+                padding-left: 10px;
+                padding-right: 10px;
+                color: white;
+                font-family:sans-serif;
+                position: absolute;
+                left: 32%;
+            }
+            .b
+            {
+                font-size: 150%;
+                background-color: rgba(0,0,0,0.5);
+                padding-left: 10px;
+                padding-right: 10px;
+                color: white;
+                font-family:sans-serif;
+                position: absolute;
+                left: 47%;
+            }
+            .c
+            {
+                background-color: rgba(0,0,0,0.5);
+                padding-left: 10px;
+                padding-right: 10px;
+                font-size: 150%;
+                color:white;
+                font-family:sans-serif;
+                position: absolute;
+                left: 62%;
+            }
+            #aa
+            {
+                position: absolute;
+                left: 17.5%;
+                font-size: 170%;
+                color: crimson;
+            }
+            #ba
+            {
+                position: absolute;
+                left: 17.5%;
+                font-size: 170%;
+                color: crimson;
+            }
+            #ca
+            {
+                position: absolute;
+                left: 17.5%;
+                font-size: 170%;
+                color: crimson;
+            }
+            #da
+            {
+                position: absolute;
+                left: 17.5%;
+                font-size: 170%;
+                color: crimson;
+            }
+            #ea
+            {
+                position: absolute;
+                left: 17.5%;
+                font-size: 170%;
+                color: crimson;
+            }
+            #buttonStyle
+            {
+                left: 0;
+                right: 0;
+                margin: auto;
+                font-size: 20px;
+                border-radius: 8px;
+                width: 10%;
+                background-color:brown;
+                color: aliceblue;
+                text-decoration: none;
+                overflow: hidden;
+                cursor: pointer;
+                position: absolute;
+                top: 71%;
+                left: 50%;
+            }
+            #buttonStyle:after {
+                content: "";
+                background: white;
+                display: block;
+                position: absolute;
+                padding-top: 300%;
+                padding-left: 350%;
+                margin-left: -20px!important;
+                margin-top: -120%;
+                opacity: 0;
+                transition: all 1s;
+            }
+            #buttonStyle:active:after {
+                padding: 0;
+                margin: 0;
+                opacity: 1;
+                transition: 0s;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <canvas id="game" width="912" height="570"></canvas>
+        
+        <p id="carRacing">SETTINGS</p>
+        <p id="aa" class="a">CHANGE UI COLORS</p> <p id="ab" class="b">GREY</p> <p id="ac" class="c">RED</p>
+        <p id="ba" class="a">CHANGE DIFFICULTY</p> <p id="bb" class="b">EASY</p> <p id="bc" class="c">HARD</p>
+        <p id="ca" class="a">SHORTCUT SETTING</p> <p id="cb" class="b">STYLE ONE</p> <p id="cc" class="c">STYLE TWO</p>
+        <p id="da" class="a">LANUAGE</p> <p id="db" class="b">ENGLISH</p> <p id="dc" class="c">FRENCH</p>
+        <p id="ea" class="a">HUD</p> <p id="eb" class="b">FIRST PERSON</p> <p id="ec" class="c">THIRD PERSON</p>
+        
+        <button id="buttonStyle" onclick="delay('menu.html',500)">BACK</button>
+        
+        <script>
+            var canvas = document.getElementById("game");
+            var draw = canvas.getContext("2d");
+            var image = new Image();
+            
+            image.addEventListener("load", loadHandler, false);
+            image.src = "../images/setting.jpg";
+            
+            function loadHandler(){
+                draw.drawImage
+                (
+                    image,0,0,912,570
+                );
+            }
+            
+            function delay(url,time){
+                setTimeout("location.href='" + url +"'", time);
+            }
+            
+            var item = ["aa","ab","ac",
+                        "ba","bb","bc",
+                        "ca","cb","cc",
+                        "da","db","dc",
+                        "ea","eb","ec",
+                        "fa","fb","fc",
+                        "ga","gb","gc",
+                        "ha","hb","hc",];
+            
+            for(i=0;i<item.length;i++){
+                if(i==0||i==1||i==2){
+                    document.getElementById(item[i]).style.top = '20%';
+                }
+                else if(i==3||i==4||i==5){
+                    document.getElementById(item[i]).style.top = '25%';
+                }
+                else if(i==6||i==7||i==8){
+                    document.getElementById(item[i]).style.top = '30%';
+                }
+                else if(i==11||i==10||i==9){
+                    document.getElementById(item[i]).style.top = '35%';
+                }
+                else if(i==12||i==13||i==14){
+                    document.getElementById(item[i]).style.top = '40%';
+                }
+                else if(i==17||i==16||i==15){
+                    document.getElementById(item[i]).style.top = '45%';
+                }
+                else if(i==18||i==19||i==20){
+                    document.getElementById(item[i]).style.top = '50%';
+                }
+                else if(i==21||i==22||i==23){
+                    document.getElementById(item[i]).style.top = '55%';
+                }
+            }
+        </script>
+    </body>
+
+</html>
