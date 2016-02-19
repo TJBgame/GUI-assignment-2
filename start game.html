@@ -89,6 +89,40 @@
                 position: absolute;
                 left: 62%;
             }
+            .controlX
+            {
+                font-size: 150%;
+                background-color: rgba(0,0,0,0.5);
+                padding-left: 10px;
+                padding-right: 10px;
+                color: white;
+                font-family:sans-serif;
+                position: absolute;
+                left: 25%;
+                color: crimson;
+            }
+            .controlY
+            {
+                font-size: 150%;
+                background-color: rgba(0,0,0,0.5);
+                padding-left: 10px;
+                padding-right: 10px;
+                color: white;
+                font-family:sans-serif;
+                position: absolute;
+                left: 45%;
+            } 
+            .controlZ
+            {
+                font-size: 150%;
+                background-color: rgba(0,0,0,0.5);
+                padding-left: 10px;
+                padding-right: 10px;
+                color: white;
+                font-family:sans-serif;
+                position: absolute;
+                left: 65%;
+            }
             #controlAA
             {
                 position: absolute;
@@ -110,11 +144,36 @@
                 position: absolute;
                 left: 60%;
             }
+            #controlXX
+            {
+                position: absolute;
+                left: 25%;
+                font-size: 170%;
+                color: crimson;
+            }
+            #controlYY
+            {
+                position: absolute;
+                font-size: 170%;
+                color: white;
+            }
+            #controlZZ
+            {
+                position: absolute;
+                font-size: 170%;
+                color: white;
+            }
             #controlBack
             {
                 position: absolute;
                 top: 71%;
                 left: 50%;
+            }
+            #settingBack
+            {
+                position: absolute;
+                top: 60%;
+                left: 45%
             }
             #pauseResumeGame
             {
@@ -212,7 +271,7 @@
             //button ID array
             var menuButtonId = ["menuStart", "menuGarage", "menuControls", "menuSetting", "menuHud", "menuQuit"];
             var pauseButtonId = ["pauseResumeGame", "pauseRestartGame", "pauseSetting", "pauseHUD", "pauseBackToMenu", "pauseQuit"]
-            
+            var settingButtonId = "settingBack";
             //functions
             function delay(url,time){                
                 setTimeout(url, time);
@@ -226,6 +285,7 @@
                             button.parentNode.removeChild(button);
                         }
                         body.removeChild(titles);
+                        
                         break;
 
                     case 2:
@@ -247,6 +307,9 @@
                         break;
 
                     case 6:
+                            var button = document.getElementById(settingButtonId);
+                            button.parentNode.removeChild(button);
+                            body.removeChild(titles);
                         break;
 
                     case 7:
@@ -419,6 +482,75 @@
                 deleteButton();
                 position = 6;
                 image.src = "images/setting.jpg";
+                var title = document.createElement("p");
+                document.body.appendChild(title);
+                title.setAttribute("id", "titles");
+                title.innerHTML = "SETTINGS";
+                var back = document.createElement("button");
+                document.body.appendChild(back);
+                back.setAttribute("class", "buttonStyle");
+                back.setAttribute("id", "settingBack");
+                back.setAttribute("onclick","delay(menuPage(),500)");
+                back.innerHTML = "BACK";
+                
+                var idName = [
+                    "controlXX","controlYY","controlZZ",
+                    "ba","bb","bc",
+                    "ca","cb","cc",
+                    "da","db","dc",
+                    "ea","eb","ec",
+                ];
+                
+                var className = [
+                    "controlX","controlY","controlZ",
+                    "controlX","controlY","controlZ",
+                    "controlX","controlY","controlZ",
+                    "controlX","controlY","controlZ",
+                    "controlX","controlY","controlZ",
+                ];
+                
+                var content = [
+                    "CHANGE UI COLOR","GREY","RED",
+                    "CHANGE DIFFICULTY","EASY","HARD",
+                    "SHORTCUT SETTING","STYLE ONE","STYLE TWO",
+                    "LANGUAGE","ENGLISH","FRENCH",
+                    "HUD","FISRT PERSON","THIRD PERSON",
+                ];
+                
+                //contents
+                for(i=0;i<idName.length;i++){
+                    var p = document.createElement("p");
+                    document.body.appendChild(p);
+                    p.setAttribute("id", idName[i]);
+                    p.setAttribute("class", className[i]);
+                    p.innerHTML = content[i];
+                    
+                    if(i==0||i==1||i==2){
+                        document.getElementById(idName[i]).style.top = '20%';
+                    }
+                    else if(i==3||i==4||i==5){
+                        document.getElementById(idName[i]).style.top = '25%';
+                    }
+                    else if(i==6||i==7||i==8){
+                        document.getElementById(idName[i]).style.top = '30%';
+                    }
+                    else if(i==11||i==10||i==9){
+                        document.getElementById(idName[i]).style.top = '35%';
+                    }
+                    else if(i==12||i==13||i==14){
+                        document.getElementById(idName[i]).style.top = '40%';
+                    }
+                    else if(i==17||i==16||i==15){
+                        document.getElementById(idName[i]).style.top = '45%';
+                    }
+                    else if(i==18||i==19||i==20){
+                        document.getElementById(idName[i]).style.top = '50%';
+                    }
+                    else if(i==21||i==22||i==23){
+                        document.getElementById(idName[i]).style.top = '55%';
+                    } 
+                }
+                
             }
             function hudPage(){
                 deleteButton();
