@@ -243,12 +243,12 @@
     <body id="body">
         <canvas id="game" width="912" height="570"></canvas>
         <p id="titles">CAR RACING</p>
-        <button id="menuStart" class="buttonStyle" onclick="delay(startPage(),500)">START GAME</button>
-        <button id="menuGarage" class="buttonStyle" onclick="delay(garagePage(),500)">GARAGE</button>
-        <button id="menuControls" class="buttonStyle" onclick="delay(controlsPage(),500)">CONTROLS</button>
-        <button id="menuSetting" class="buttonStyle" onclick="delay(settingPage(),500)">SETTING</button>
-        <button id="menuHud" class="buttonStyle" onclick="delay(hudPage(),500)">HUD</button>
-        <button id="menuQuit" class="buttonStyle" onclick="delay(quitPage(),500)">QUIT</button>
+        <button id="menuStart" class="buttonStyle" onclick="delay(startPage,500)">START GAME</button>
+        <button id="menuGarage" class="buttonStyle" onclick="delay(garagePage,500)">GARAGE</button>
+        <button id="menuControls" class="buttonStyle" onclick="delay(controlsPage,500)">CONTROLS</button>
+        <button id="menuSetting" class="buttonStyle" onclick="delay(settingPage,500)">SETTING</button>
+        <button id="menuHud" class="buttonStyle" onclick="delay(hudPage,500)">HUD</button>
+        <button id="menuQuit" class="buttonStyle" onclick="delay(quitPage,500)">QUIT</button>
         <script>
             //canvas
             var canvas = document.getElementById("game");
@@ -274,7 +274,7 @@
             var settingButtonId = "settingBack";
             //functions
             function delay(url,time){                
-                setTimeout(url, time);
+                setTimeout(url,time);
             }
             
             function deleteButton(){
@@ -310,6 +310,8 @@
                             var button = document.getElementById(settingButtonId);
                             button.parentNode.removeChild(button);
                             body.removeChild(titles);
+                            /*var abc = document.getElementById(idName[i]);
+                            body.removeChild(abc);*/
                         break;
 
                     case 7:
@@ -336,7 +338,7 @@
             }
             
             function pressed(event){
-                if  (position == 2 & event.keyCode == 122 || event.keyCode == 90 || event.keyCode == 27){
+                if  (position === 2  & event.keyCode == 122 || event.keyCode == 90 || event.keyCode == 27){
                     image.src = "images/pause.jpg";
                     pausePage();
                 }
@@ -355,37 +357,37 @@
                 document.body.appendChild(pauseButton);
                 pauseButton.setAttribute("class", "buttonStyle");
                 pauseButton.setAttribute("id", "pauseResumeGame");
-                pauseButton.setAttribute("onclick","delay(startPage(),500)");
+                pauseButton.setAttribute("onclick","delay(startPage,500)");
                 pauseButton.innerHTML = "RESUME GAME";
                 var pauseButton1 = document.createElement("button");
                 document.body.appendChild(pauseButton1);
                 pauseButton1.setAttribute("class", "buttonStyle");
                 pauseButton1.setAttribute("id", "pauseRestartGame");
-                pauseButton1.setAttribute("onclick","delay(startPage(),500)");
+                pauseButton1.setAttribute("onclick","delay(startPage,500)");
                 pauseButton1.innerHTML = "RESTART GAME";
                 var pauseButton2 = document.createElement("button");
                 document.body.appendChild(pauseButton2);
                 pauseButton2.setAttribute("class", "buttonStyle");
                 pauseButton2.setAttribute("id", "pauseSetting");
-                pauseButton2.setAttribute("onclick","delay(settingPage(),500)");
+                pauseButton2.setAttribute("onclick","delay(settingPage,500)");
                 pauseButton2.innerHTML = "SETTING";
                 var pauseButton3 = document.createElement("button");
                 document.body.appendChild(pauseButton3);
                 pauseButton3.setAttribute("class", "buttonStyle");
                 pauseButton3.setAttribute("id", "pauseHUD");
-                pauseButton3.setAttribute("onclick","delay(hudPage(),500)");
+                pauseButton3.setAttribute("onclick","delay(hudPage,500)");
                 pauseButton3.innerHTML = "HUD";
                 var pauseButton4 = document.createElement("button");
                 document.body.appendChild(pauseButton4);
                 pauseButton4.setAttribute("class", "buttonStyle");
                 pauseButton4.setAttribute("id", "pauseBackToMenu");
-                pauseButton4.setAttribute("onclick","delay(menuPage(),500)");
+                pauseButton4.setAttribute("onclick","delay(menuPage,500)");
                 pauseButton4.innerHTML = "BACK TO MENU";
                 var pauseButton5 = document.createElement("button");
                 document.body.appendChild(pauseButton5);
                 pauseButton5.setAttribute("class", "buttonStyle");
                 pauseButton5.setAttribute("id", "pauseQuit");
-                pauseButton5.setAttribute("onclick","delay(quitPage(),500)");
+                pauseButton5.setAttribute("onclick","delay(quitPage,500)");
                 pauseButton5.innerHTML = "QUIT";
                 
             }
@@ -478,6 +480,7 @@
                 }
                 
             }
+            
             function settingPage(){
                 deleteButton();
                 position = 6;
@@ -490,7 +493,7 @@
                 document.body.appendChild(back);
                 back.setAttribute("class", "buttonStyle");
                 back.setAttribute("id", "settingBack");
-                back.setAttribute("onclick","delay(menuPage(),500)");
+                back.setAttribute("onclick","delay(menuPage,500)");
                 back.innerHTML = "BACK";
                 
                 var idName = [
