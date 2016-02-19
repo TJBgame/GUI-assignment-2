@@ -181,6 +181,7 @@
             
             //button ID array
             var menuButtonId = ["menuStart", "menuGarage", "menuControls", "menuSetting", "menuHud", "menuQuit"];
+            var pauseButtonId = ["pauseResume", "pauseRestart", "pauseSetting", "PauseHud", "pauseBacktoMenu", "PauseExit"]
             
             //functions
             function delay(url,time){                
@@ -198,9 +199,15 @@
                         break;
 
                     case 2:
+                
                         break;
 
                     case 3:
+                        for (i=0;i<6;i++){
+                            var button = document.getElementById(pauseButtonId[i]);
+                            button.parentNode.removeChild(button);
+                        }
+                        body.removeChild(titles);
                         break;
 
                     case 4:
@@ -225,14 +232,31 @@
                 console.log(position);
             }
             
+            window.addEventListener("keypress", pressed, false);
+            
             function startPage(){
                 deleteButton();
                 position = 2;
+                image.src = "images/ingame.jpg";
+                pressed(event);
+            }
+            
+            function pressed(event){
+                if (event.keyCode == 122 || event.keyCode == 90 || event.keyCode == 27){
+                    image.src = "images/pause.jpg";
+                    pausePage();
+                }
             }
             
             function pausePage(){
                 deleteButton();
                 position = 3;
+                //add the title for pause page
+                var title = document.createElement("p");
+                document.body.appendChild(title);
+                title.setAttribute("id", "titles");
+                title.innerHTML = "Pause";
+                //add the button for pause page
             }
             function garagePage(){
                 deleteButton();
