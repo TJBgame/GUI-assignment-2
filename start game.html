@@ -299,6 +299,12 @@
             function deleteButton(){
                 switch (position) {
                     case 0:
+                        var video = document.getElementById("splash");
+                        video.parentNode.removeChild(video);
+                        
+                        var canvas = document.getElementById("game");
+                        
+                        
                         break;
                         
                     case 1:
@@ -352,7 +358,19 @@
             }
             
             function startGame(){
-                menuPage();
+                var video = document.createElement("video");
+                document.body.appendChild(video);
+                video.setAttribute("src", "videos/1.mp4");
+                video.setAttribute("width", "912");
+                video.setAttribute("height", "570");
+                video.setAttribute("id", "splash");
+                video.setAttribute("controls","controls");
+                video.setAttribute("autoplay","autoplay");
+                
+                var canvas = document.getElementById("game");
+                canvas.style.display = 'none';
+                
+                setTimeout(menuPage, 2700);
             }
             
             function menuPage(){
