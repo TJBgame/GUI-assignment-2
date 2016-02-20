@@ -242,13 +242,7 @@
     </head>
     <body id="body">
         <canvas id="game" width="912" height="570"></canvas>
-        <p id="titles">CAR RACING</p>
-        <button id="menuStart" class="buttonStyle" onclick="delay(startPage,500)">START GAME</button>
-        <button id="menuGarage" class="buttonStyle" onclick="delay(garagePage,500)">GARAGE</button>
-        <button id="menuControls" class="buttonStyle" onclick="delay(controlsPage,500)">CONTROLS</button>
-        <button id="menuSetting" class="buttonStyle" onclick="delay(settingPage,500)">SETTING</button>
-        <button id="menuHud" class="buttonStyle" onclick="delay(hudPage,500)">HUD</button>
-        <button id="menuQuit" class="buttonStyle" onclick="delay(quitPage,500)">QUIT</button>
+        
         <script>
             //canvas
             var canvas = document.getElementById("game");
@@ -256,7 +250,6 @@
             var image = new Image();
             
             image.addEventListener("load", loadHandler, false);
-            image.src = "images/menu.jpg";
             
             function loadHandler(){
                 draw.drawImage
@@ -265,13 +258,18 @@
                 );
             }
             
+            
+            // ---------------------------pages------------------------------
             //pages
-            var position = 1;
+            var position = 0;
+            
+            startGame();
             
             //button ID array
             var menuButtonId = ["menuStart", "menuGarage", "menuControls", "menuSetting", "menuHud", "menuQuit"];
             var pauseButtonId = ["pauseResumeGame", "pauseRestartGame", "pauseSetting", "pauseHUD", "pauseBackToMenu", "pauseQuit"]
             var settingButtonId = "settingBack";
+            
             //functions
             function delay(url,time){                
                 setTimeout(url,time);
@@ -279,13 +277,15 @@
             
             function deleteButton(){
                 switch (position) {
+                    case 0:
+                        break;
+                        
                     case 1:
                         for(i=0;i<6;i++){
                             var button = document.getElementById(menuButtonId[i]);
                             button.parentNode.removeChild(button);
                         }
                         body.removeChild(titles);
-                        
                         break;
 
                     case 2:
@@ -321,11 +321,30 @@
                         break;
                 }
             }
+            
+            function startGame(){
+                menuPage();
+            }
+            
             function menuPage(){
                 image.src = "images/menu.jpg";
                 deleteButton();
                 position =1;
-                console.log(position);
+                var menuButtonId = ["menuStart", "menuGarage", "menuControls", "menuSetting", "menuHud", "menuQuit"];
+                var menuButtonContent = ["START GAME","GARAGE","CONTROLS","SETTING","HUD","QUIT"];
+                var menuFunction = ["startPage()","garagePage()","controlsPage()","settingPage()","hudPage()","quitePage()"];
+                for(i=0;i<menuButtonId.length;i++){
+                    var buttons = document.createElement("button");
+                    document.body.appendChild(buttons);
+                    buttons.setAttribute("class", "buttonStyle");
+                    buttons.setAttribute("id", menuButtonId[i]);
+                    buttons.setAttribute("onclick","delay("+menuFunction[i]+",500)");
+                    buttons.innerHTML = menuButtonContent[i];   
+                }
+                var menutitle = document.createElement("p");
+                document.body.appendChild(menutitle);
+                menutitle.setAttribute("id", "titles");
+                menutitle.innerHTML = "CAR RACING";
             }
             
             window.addEventListener("keypress", pressed, false);
@@ -338,9 +357,11 @@
             }
             
             function pressed(event){
-                if  (position === 2  & event.keyCode == 122 || event.keyCode == 90 || event.keyCode == 27){
-                    image.src = "images/pause.jpg";
-                    pausePage();
+                if  (position === 2){
+                    if(event.keyCode == 122 || event.keyCode == 90 || event.keyCode == 27){
+                        image.src = "images/pause.jpg";
+                        pausePage();
+                    }
                 }
             }
             
