@@ -350,7 +350,7 @@
                 position =1;
                 var menuButtonId = ["menuStart", "menuGarage", "menuControls", "menuSetting", "menuHud", "menuQuit"];
                 var menuButtonContent = ["START GAME","GARAGE","CONTROLS","SETTING","HUD","QUIT"];
-                var menuFunction = ["startPage()","garagePage()","controlsPage()","settingPage()","hudPage()","quitePage()"];
+                var menuFunction = ["startPage()","garagePage()","controlsPage()","settingPage()","hudPage()","quitPage()"];
                 for(i=0;i<menuButtonId.length;i++){
                     var buttons = document.createElement("button");
                     document.body.appendChild(buttons);
@@ -601,6 +601,10 @@
             function quitPage(){
                 deleteButton();
                 position = 8;
+                console.log(123123);
+                draw.fillStyle = "#000000";
+                draw.fillRect(0,0,912,570);
+                alert("THANKS FOR PLAYING!");
             }
         </script>
     </body>
