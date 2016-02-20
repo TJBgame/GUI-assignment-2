@@ -279,6 +279,15 @@
                     "ha","hb","hc"
                 ];
             
+            var settingidName = [
+                    "controlXX","controlYY","controlZZ",
+                    "ba","bb","bc",
+                    "ca","cb","cc",
+                    "da","db","dc",
+                    "ea","eb","ec",
+                ];
+                
+            
             
             var settingButtonId = "settingBack";
             
@@ -328,8 +337,10 @@
                             var button = document.getElementById(settingButtonId);
                             button.parentNode.removeChild(button);
                             body.removeChild(titles);
-                            /*var abc = document.getElementById(idName[i]);
-                            body.removeChild(abc);*/
+                            for(i=0;i<settingidName.length;i++){
+                            var settingP = document.getElementById(settingidName[i]);
+                            settingP.parentNode.removeChild(settingP);
+                        }
                         break;
 
                     case 7:
@@ -350,7 +361,8 @@
                 position =1;
                 var menuButtonId = ["menuStart", "menuGarage", "menuControls", "menuSetting", "menuHud", "menuQuit"];
                 var menuButtonContent = ["START GAME","GARAGE","CONTROLS","SETTING","HUD","QUIT"];
-                var menuFunction = ["startPage()","garagePage()","controlsPage()","settingPage()","hudPage()","quitPage()"];
+                var menuFunction = ["startPage","garagePage","controlsPage","settingPage","hudPage","quitPage"];
+                
                 for(i=0;i<menuButtonId.length;i++){
                     var buttons = document.createElement("button");
                     document.body.appendChild(buttons);
@@ -375,8 +387,8 @@
             }
             
             function pressed(event){
-                if  (position === 2){
-                    if(event.keyCode == 122 || event.keyCode == 90 || event.keyCode == 27){
+                if  (position == 2){
+                    if (event.keyCode === 122 || event.keyCode === 90 || event.keyCode === 27){
                         image.src = "images/pause.jpg";
                         pausePage();
                     }
@@ -519,6 +531,7 @@
                 }
                 
             }
+            
             
             function settingPage(){
                 deleteButton();
