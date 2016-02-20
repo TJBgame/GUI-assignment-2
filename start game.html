@@ -403,13 +403,11 @@
                 image.src = "images/ingame.jpg";
             }
             
-            function pressed(event){
-                if  (position == 2){
-                    if (event.keyCode === 122 || event.keyCode === 90 || event.keyCode === 27){
+            function pressed(e){
+                if  (position == 2 &&  (e.keyCode === 122 || e.keyCode === 90 || e.keyCode === 27)){
                         image.src = "images/pause.jpg";
                         pausePage();
-                    }
-                }
+                    } 
             }
             
             function pausePage(){
