@@ -272,39 +272,6 @@
 			var imagecnt=4;
             
             image.addEventListener("load", loadHandler, false);
-			
-			 function changeimageFirst() {
-            
-              image.src = "images/hud2.jpg";
-            }
-
-            function changeimageThird() {
-
-              image.src = "images/hud3.jpg";
-
-            }
-			
-			function changeimageLeft() {
-			
-			
-             image.src = "images/car"+ imagecnt +".jpg";
-                imagecnt= imagecnt -1;
-                if (imagecnt < 1) {
-                   imagecnt=6; 
-                 }
-			}	 
-				 
-			function changeimageRight() { 
-			  image.src = "images/car"+ imagecnt +".jpg";
-			
-              imagecnt= imagecnt +1;
-               if (imagecnt  > 6) {
-                   imagecnt=1; 
-                 }	 
-            }
-            
-       
-         
             
             function loadHandler(){
                 draw.drawImage
@@ -351,6 +318,7 @@
                 setTimeout(url,time);
             }
             
+            
             function deleteButton(){
                 switch (position) {
                     case 0:
@@ -383,15 +351,6 @@
                         break;
 
                     case 4:
-					
-					/*
-					  for(i=0;i<6;i++){
-                            var button = document.getElementById(garageButtonId[i]);
-                            button.parentNode.removeChild(button);
-                        }
-                        body.removeChild(titles);
-						*/
-						//"controlAA","controlAB","controlAC"
 						var button = document.getElementById("controlAAA");
                         button.parentNode.removeChild(button);
 					    var button = document.getElementById("controlAAB");
@@ -438,6 +397,7 @@
                 }
             }
             
+            
             function startGame(){
                 var video = document.createElement("video");
                 document.body.appendChild(video);
@@ -452,6 +412,7 @@
                 
                 setTimeout(menuPage, 2700);
             }
+            
             
             function menuPage(){
 			    
@@ -476,6 +437,7 @@
                 menutitle.innerHTML = "CAR RACING";
             }
             
+            
             window.addEventListener("keypress", pressed, false);
             
             function startPage(){
@@ -490,6 +452,7 @@
                         pausePage();
                     } 
             }
+            
             
             function pausePage(){
                 deleteButton();
@@ -538,6 +501,8 @@
                 pauseButton5.innerHTML = "QUIT";
                 
             }
+            
+            
             function garagePage(){
                 deleteButton();
                 position = 4;
@@ -575,8 +540,8 @@
                 menutitle.innerHTML = "GARAGE";
 				
 				//contents
-              //  for(i=0;i<idName.length;i++){
-			  for(i=0;i<2;i++){
+                //  for(i=0;i<idName.length;i++){
+			    for(i=0;i<2;i++){
                     var p = document.createElement("button");
                     document.body.appendChild(p);
                     p.setAttribute("id", idName[i]);
@@ -591,37 +556,25 @@
                     else if(i==1){
                        document.getElementById(idName[i]).style.top = '50%';
                        document.getElementById(idName[i]).style.left = '30.0%';
-                    }
-                    
-                }
-				
+                    }    
+                }	
 			}
-				
-				
-		/*		
-            function displayGarage(){
-                image.src = "images/car1.jpg";
-                // change title
-                var title = document.getElementById("titles");
-                title.innerHTML = "GARAGE";
-                //back button
-                document.getElementById("controlBack").style.visibility = 'visible';
-                 GarageButton ();
-              }
-			
-			  image.addEventListener("load", loadHandler, false);
-			
-		*/
-            
-            
-            
-
-
-            
-			
-			
-			
+            function changeimageLeft() {
+                image.src = "images/car"+ imagecnt +".jpg";
+                imagecnt= imagecnt -1;
+                if (imagecnt < 1) {
+                   imagecnt=6; 
+                 }
+			}	 
+			function changeimageRight() { 
+			   image.src = "images/car"+ imagecnt +".jpg";
+               imagecnt= imagecnt +1;
+               if (imagecnt  > 6) {
+                   imagecnt=1; 
+                 }	 
+            }
 				 
+            
             function controlsPage(){
                 deleteButton();
                 position = 5;
@@ -780,9 +733,10 @@
                     else if(i==21||i==22||i==23){
                         document.getElementById(idName[i]).style.top = '55%';
                     } 
-                }
-                
+                }     
             }
+            
+            
             function hudPage(){
                 deleteButton();
                 position = 7;
@@ -840,6 +794,19 @@
                 }
                 
             }
+            
+            function changeimageFirst() {
+            
+              image.src = "images/hud2.jpg";
+            }
+
+            function changeimageThird() {
+
+              image.src = "images/hud3.jpg";
+
+            }
+            
+            
             function quitPage(){
                 deleteButton();
                 position = 8;
@@ -848,7 +815,6 @@
                 draw.fillRect(0,0,912,570);
                 alert("THANKS FOR PLAYING!");
             }
-			
         </script>
     </body>
 
