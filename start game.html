@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <!doctype html>
 <html>
     <head>
@@ -637,4 +638,848 @@
         </script>
     </body>
 
+=======
+<!doctype html>
+<html>
+    <head>
+        <title>CAR RACING</title>
+        <style>            
+            canvas
+            {
+                display: block;
+                margin: auto;
+                border-style: outset;
+                border-width: 10px;
+            }
+            body
+            {
+                text-align: center;
+                margin: auto;
+                background-color: darkgray;
+            }
+            #titles
+            {
+                font-size: 300%;
+                font-family: Impact;
+                color: crimson;
+                position:absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+            }
+            #menuStart
+            {
+                position: absolute;
+                top: 25%;
+            }
+            #menuGarage
+            {
+                position: absolute;
+                top: 32.5%;
+            }
+            #menuControls
+            {
+                position: absolute;
+                top: 40%;
+            }
+            #menuSetting
+            {
+                position: absolute;
+                top: 47.5%;
+            }
+            #menuHud
+            {
+                position: absolute;
+                top: 55%;
+            }
+            #menuQuit
+            {
+                position: absolute;
+                top: 62.5%;
+            }
+            #backTOgame
+            {
+                position: absolute;
+                top: 60%;
+                left: 45%
+            }
+            .controlA
+            {
+                font-size: 150%;
+                background-color: rgba(0,0,0,0.5);
+                padding-left: 10px;
+                padding-right: 10px;
+                color: white;
+                font-family:sans-serif;
+                position: absolute;
+                left: 32%;
+            }
+            .controlB
+            {
+                font-size: 150%;
+                background-color: rgba(0,0,0,0.5);
+                padding-left: 10px;
+                padding-right: 10px;
+                color: white;
+                font-family:sans-serif;
+                position: absolute;
+                left: 47%;
+            }
+            .controlC
+            {
+                background-color: rgba(0,0,0,0.5);
+                padding-left: 10px;
+                padding-right: 10px;
+                font-size: 150%;
+                color:white;
+                font-family:sans-serif;
+                position: absolute;
+                left: 62%;
+            }
+            .controlX
+            {
+                font-size: 150%;
+                background-color: rgba(0,0,0,0.5);
+                padding-left: 10px;
+                padding-right: 10px;
+                color: white;
+                font-family:sans-serif;
+                position: absolute;
+                left: 25%;
+                color: crimson;
+            }
+            .controlY
+            {
+                font-size: 150%;
+                background-color: rgba(0,0,0,0.5);
+                padding-left: 10px;
+                padding-right: 10px;
+                color: white;
+                font-family:sans-serif;
+                position: absolute;
+                left: 45%;
+            } 
+            .controlZ
+            {
+                font-size: 150%;
+                background-color: rgba(0,0,0,0.5);
+                padding-left: 10px;
+                padding-right: 10px;
+                color: white;
+                font-family:sans-serif;
+                position: absolute;
+                left: 65%;
+            }
+            #controlAA
+            {
+                position: absolute;
+                left: 30%;
+                font-size: 170%;
+                color: crimson;
+            }
+            #controlAB
+            {
+                font-size: 170%;
+                color: crimson;
+                position: absolute;
+                left: 45%;
+            }
+            #controlAC
+            {
+                font-size: 170%;
+                color: crimson;
+                position: absolute;
+                left: 60%;
+            }
+            #hudGarageAA
+            {
+                position: absolute;
+                left: 30%;
+                font-size: 170%;
+                color: white;
+            }
+            #hudGarageAB
+            {
+                font-size: 170%;
+                color: white;
+                position: absolute;
+                left: 45%;
+            }
+            #hudGarageAC
+            {
+                font-size: 170%;
+                color: white;
+                position: absolute;
+                left: 60%;
+            }
+            #controlXX
+            {
+                position: absolute;
+                left: 25%;
+                font-size: 170%;
+                color: crimson;
+            }
+            #controlYY
+            {
+                position: absolute;
+                font-size: 170%;
+                color: white;
+            }
+            #controlZZ
+            {
+                position: absolute;
+                font-size: 170%;
+                color: white;
+            }
+            #controlBack
+            {
+                position: absolute;
+                top: 71%;
+                left: 50%;
+            }
+            #settingBack
+            {
+                position: absolute;
+                top: 60%;
+                left: 45%
+            }
+            #pauseResumeGame
+            {
+                position: absolute;
+                top: 25%;
+            }
+            #pauseRestartGame
+            {
+                position: absolute;
+                top: 32.5%;
+            }
+            #pauseSetting
+            {
+                position: absolute;
+                top: 40%;
+            }
+            #pauseHUD
+            {
+                position: absolute;
+                top: 47.5%;
+            }
+            #pauseBackToMenu
+            {
+                position: absolute;
+                top: 55%;
+            }
+            #pauseQuit
+            {
+                position: absolute;
+                top: 62.5%;
+            }
+            .buttonStyle
+            {
+                left: 0;
+                right: 0;
+                margin: auto;
+                font-size: 20px;
+                border-radius: 8px;
+                width: 200px;
+                background-color:brown;
+                color: aliceblue;
+                text-decoration: none;
+                overflow: hidden;
+                cursor: pointer;
+            }
+            .buttonStyle:after {
+                content: "";
+                background: white;
+                display: block;
+                position: absolute;
+                padding-top: 300%;
+                padding-left: 350%;
+                margin-left: -20px!important;
+                margin-top: -120%;
+                opacity: 0;
+                transition: all 1s;
+            }
+            .buttonStyle:active:after {
+                padding: 0;
+                margin: 0;
+                opacity: 1;
+                transition: 0s;
+            }
+
+        </style>
+    </head>
+    <body id="body">
+        <canvas id="game" width="912" height="570"></canvas>
+        
+        <script>
+            //canvas
+            var canvas = document.getElementById("game");
+            var draw = canvas.getContext("2d");
+            var image = new Image();
+			var imagecnt=4;
+            
+            image.addEventListener("load", loadHandler, false);
+			
+            
+			
+            
+       
+         
+            
+            function loadHandler(){
+                draw.drawImage
+                (
+                    image,0,0,912,570
+                );
+            }
+            
+            
+            // ---------------------------pages------------------------------
+            
+            var position = 0;
+            
+            startGame();
+            
+            //button ID array
+            var menuButtonId = ["menuStart", "menuGarage", "menuControls", "menuSetting", "menuHud", "menuQuit"];
+            var pauseButtonId = ["pauseResumeGame", "pauseRestartGame", "pauseSetting", "pauseHUD", "pauseBackToMenu", "pauseQuit"]
+            var controlIdName = [
+                    "controlAA","controlAB","controlAC",
+                    "ba","bb","bc",
+                    "ca","cb","cc",
+                    "da","db","dc",
+                    "ea","eb","ec",
+                    "fa","fb","fc",
+                    "ga","gb","gc",
+                    "ha","hb","hc"
+                ];
+            
+            var settingidName = [
+                    "controlXX","controlYY","controlZZ",
+                    "ba","bb","bc",
+                    "ca","cb","cc",
+                    "da","db","dc",
+                    "ea","eb","ec",
+                ];
+                
+            
+            
+            var settingButtonId = "settingBack";
+            
+            //delay
+            function delay(url,time){                
+                setTimeout(url,time);
+            }
+            
+            
+            //---------------------delete function----------------------
+            
+            function deleteButton(){
+                switch (position) {
+                    case 0:
+                        var video = document.getElementById("splash");
+                        video.parentNode.removeChild(video);
+                        
+                        var canvas = document.getElementById("game");
+                        canvas.style.display = 'block';
+                        
+                        break;
+                        
+                    case 1:
+                        for(i=0;i<6;i++){
+                            var button = document.getElementById(menuButtonId[i]);
+                            button.parentNode.removeChild(button);
+                        }
+                        body.removeChild(titles);
+                        break;
+
+                    case 2:
+                        
+                        break;
+
+                    case 3: 
+                        for (i=0;i<6;i++){
+                            var button = document.getElementById(pauseButtonId[i]);
+                            button.parentNode.removeChild(button);
+                        }
+                        body.removeChild(titles);
+                        break;
+
+                    case 4:
+                        
+						var button = document.getElementById("hudGarageAA");
+                        button.parentNode.removeChild(button);
+					    var button = document.getElementById("hudGarageAB");
+                        button.parentNode.removeChild(button);
+					    var button = document.getElementById("controlBack");
+                        button.parentNode.removeChild(button);
+						body.removeChild(titles);
+                        break;
+					
+
+                    case 5:
+										
+                        for(i=0;i<controlIdName.length;i++){
+                            var controlP = document.getElementById(controlIdName[i]);
+                            controlP.parentNode.removeChild(controlP);
+                        }
+                        body.removeChild(titles);
+                        body.removeChild(controlBack);
+                        break;
+
+                    case 6:
+										
+                            var button = document.getElementById(settingButtonId);
+                            button.parentNode.removeChild(button);
+                            body.removeChild(titles);
+                            for(i=0;i<settingidName.length;i++){
+                            var settingP = document.getElementById(settingidName[i]);
+                            settingP.parentNode.removeChild(settingP);
+                        }
+                        break;
+
+                    case 7:
+					    var button = document.getElementById("controlBack");
+                        button.parentNode.removeChild(button);
+						var button = document.getElementById("hudGarageAA");
+                        button.parentNode.removeChild(button);
+					    var button = document.getElementById("hudGarageAB");
+                        button.parentNode.removeChild(button);
+						body.removeChild(titles);
+                        break;
+                        
+                    case 8:
+                        break;
+                }
+            }
+            
+            
+            //----------------------pages function--------------------------
+            
+            
+            function startGame(){
+                var video = document.createElement("video");
+                document.body.appendChild(video);
+                video.setAttribute("src", "videos/1.mp4");
+                video.setAttribute("width", "912");
+                video.setAttribute("height", "570");
+                video.setAttribute("id", "splash");
+                video.setAttribute("autoplay","autoplay");
+                
+                var canvas = document.getElementById("game");
+                canvas.style.display = 'none';
+                
+                setTimeout(menuPage, 2700);
+            }
+            
+            
+            function menuPage(){
+			    
+                image.src = "images/menu.jpg";
+                deleteButton();
+                position =1;
+                var menuButtonId = ["menuStart", "menuGarage", "menuControls", "menuSetting", "menuHud", "menuQuit"];
+                var menuButtonContent = ["START GAME","GARAGE","CONTROLS","SETTING","HUD","QUIT"];
+                var menuFunction = ["startPage","garagePage","controlsPage","settingPage","hudPage","quitPage"];
+                
+                for(i=0;i<menuButtonId.length;i++){
+                    var buttons = document.createElement("button");
+                    document.body.appendChild(buttons);
+                    buttons.setAttribute("class", "buttonStyle");
+                    buttons.setAttribute("id", menuButtonId[i]);
+                    buttons.setAttribute("onclick","delay("+menuFunction[i]+",500)");
+                    buttons.innerHTML = menuButtonContent[i];   
+                }
+                var menutitle = document.createElement("p");
+                document.body.appendChild(menutitle);
+                menutitle.setAttribute("id", "titles");
+                menutitle.innerHTML = "CAR RACING";
+            }
+            
+            
+            //key press
+            window.addEventListener("keypress", pressed, false);
+            function pressed(e){
+                if  (position == 2 &&  (e.keyCode === 122 || e.keyCode === 90 || e.keyCode === 27)){
+                        image.src = "images/pause.jpg";
+                        pausePage();
+                    } 
+            }
+            
+            
+            function startPage(){
+                deleteButton();
+                position = 2;
+                image.src = "images/ingame.jpg";
+            }
+            
+            
+            function pausePage(){
+                deleteButton();
+                position = 3;
+                //add the title for pause page
+                var title = document.createElement("p");
+                document.body.appendChild(title);
+                title.setAttribute("id", "titles");
+                title.innerHTML = "Pause";
+                //add the button for pause page
+                var pauseButton = document.createElement("button");
+                document.body.appendChild(pauseButton);
+                pauseButton.setAttribute("class", "buttonStyle");
+                pauseButton.setAttribute("id", "pauseResumeGame");
+                pauseButton.setAttribute("onclick","delay(startPage,500)");
+                pauseButton.innerHTML = "RESUME GAME";
+                var pauseButton1 = document.createElement("button");
+                document.body.appendChild(pauseButton1);
+                pauseButton1.setAttribute("class", "buttonStyle");
+                pauseButton1.setAttribute("id", "pauseRestartGame");
+                pauseButton1.setAttribute("onclick","delay(startPage,500)");
+                pauseButton1.innerHTML = "RESTART GAME";
+                var pauseButton2 = document.createElement("button");
+                document.body.appendChild(pauseButton2);
+                pauseButton2.setAttribute("class", "buttonStyle");
+                pauseButton2.setAttribute("id", "pauseSetting");
+                pauseButton2.setAttribute("onclick","delay(settingPage,500)");
+                pauseButton2.innerHTML = "SETTING";
+                var pauseButton3 = document.createElement("button");
+                document.body.appendChild(pauseButton3);
+                pauseButton3.setAttribute("class", "buttonStyle");
+                pauseButton3.setAttribute("id", "pauseHUD");
+                pauseButton3.setAttribute("onclick","delay(hudPage,500)");
+                pauseButton3.innerHTML = "HUD";
+                var pauseButton4 = document.createElement("button");
+                document.body.appendChild(pauseButton4);
+                pauseButton4.setAttribute("class", "buttonStyle");
+                pauseButton4.setAttribute("id", "pauseBackToMenu");
+                pauseButton4.setAttribute("onclick","delay(menuPage,500)");
+                pauseButton4.innerHTML = "BACK TO MENU";
+                var pauseButton5 = document.createElement("button");
+                document.body.appendChild(pauseButton5);
+                pauseButton5.setAttribute("class", "buttonStyle");
+                pauseButton5.setAttribute("id", "pauseQuit");
+                pauseButton5.setAttribute("onclick","delay(quitPage,500)");
+                pauseButton5.innerHTML = "QUIT";
+                
+            }
+            
+            
+            function garagePage(){
+                deleteButton();
+                position = 4;
+				image.src = "images/car1.jpg";
+            
+			
+			    var idName = [
+                    "hudGarageAA","hudGarageAB","hudGarageAC"
+                ];
+                
+                var className = [
+                    "buttonStyle","buttonStyle","buttonStyle"
+                ];
+                
+                var content = [
+                    "<--","-->",""
+                ];
+				
+		
+			    var onclickMethod = [
+                    "changeimageRight()","changeimageLeft()",""
+                ];
+				
+				//back button
+                var back = document.createElement("button");
+                document.body.appendChild(back);
+                back.setAttribute("class", "buttonStyle");
+                back.setAttribute("id", "controlBack");
+                back.setAttribute("onclick","delay(menuPage(),500)");
+                back.innerHTML = "BACK";
+                //title
+				var menutitle = document.createElement("p");
+                document.body.appendChild(menutitle);
+                menutitle.setAttribute("id", "titles");
+                menutitle.innerHTML = "GARAGE";
+				
+				//contents
+              //  for(i=0;i<idName.length;i++){
+			  for(i=0;i<2;i++){
+                    var p = document.createElement("button");
+                    document.body.appendChild(p);
+                    p.setAttribute("id", idName[i]);
+                    p.setAttribute("class", className[i]);
+                    p.innerHTML = content[i];
+					p.setAttribute("onclick", onclickMethod[i]);
+                    
+                    if(i==0){
+                       document.getElementById(idName[i]).style.top = '50%';
+                       document.getElementById(idName[i]).style.left = '-30.0%';
+                    }
+                    else if(i==1){
+                       document.getElementById(idName[i]).style.top = '50%';
+                       document.getElementById(idName[i]).style.left = '30.0%';
+                    }
+                    
+                }
+			}
+            function changeimageLeft() {
+             image.src = "images/car"+ imagecnt +".jpg";
+                imagecnt= imagecnt -1;
+                if (imagecnt < 1) {
+                   imagecnt=6; 
+                 }
+            }	 
+
+            function changeimageRight() { 
+              image.src = "images/car"+ imagecnt +".jpg";
+
+              imagecnt= imagecnt +1;
+               if (imagecnt  > 6) {
+                   imagecnt=1; 
+                 }	 
+            }
+
+				 
+            function controlsPage(){
+                deleteButton();
+                position = 5;
+                image.src = "images/control.jpg";
+                
+                var idName = [
+                    "controlAA","controlAB","controlAC",
+                    "ba","bb","bc",
+                    "ca","cb","cc",
+                    "da","db","dc",
+                    "ea","eb","ec",
+                    "fa","fb","fc",
+                    "ga","gb","gc",
+                    "ha","hb","hc"
+                ];
+                
+                var className = [
+                    "controlA","controlB","controlC",
+                    "controlA","controlB","controlC",
+                    "controlA","controlB","controlC",
+                    "controlA","controlB","controlC",
+                    "controlA","controlB","controlC",
+                    "controlA","controlB","controlC",
+                    "controlA","controlB","controlC",
+                    "controlA","controlB","controlC",
+                ];
+                
+                var content = [
+                    "Shortcut","Style One","Style Two",
+                    "UP","up","w",
+                    "Down","down","s",
+                    "Left","left","a",
+                    "Right","right","d",
+                    "Break","space","j",
+                    "Change View","v","k",
+                    "pause","z","z"
+                ];
+                
+                //title
+                var title = document.createElement("p");
+                document.body.appendChild(title);
+                title.setAttribute("id", "titles");
+                title.innerHTML = "CONTROLS";
+                //back button
+                var back = document.createElement("button");
+                document.body.appendChild(back);
+                back.setAttribute("class", "buttonStyle");
+                back.setAttribute("id", "controlBack");
+                back.setAttribute("onclick","delay(menuPage(),500)");
+                back.innerHTML = "BACK";
+                //contents
+                for(i=0;i<idName.length;i++){
+                    var p = document.createElement("p");
+                    document.body.appendChild(p);
+                    p.setAttribute("id", idName[i]);
+                    p.setAttribute("class", className[i]);
+                    p.innerHTML = content[i];
+                    
+                    if(i==0||i==1||i==2){
+                        document.getElementById(idName[i]).style.top = '17.5%';
+                    }
+                    else if(i==3||i==4||i==5){
+                        document.getElementById(idName[i]).style.top = '25%';
+                    }
+                    else if(i==6||i==7||i==8){
+                        document.getElementById(idName[i]).style.top = '30%';
+                    }
+                    else if(i==11||i==10||i==9){
+                        document.getElementById(idName[i]).style.top = '35%';
+                    }
+                    else if(i==12||i==13||i==14){
+                        document.getElementById(idName[i]).style.top = '40%';
+                    }
+                    else if(i==17||i==16||i==15){
+                        document.getElementById(idName[i]).style.top = '45%';
+                    }
+                    else if(i==18||i==19||i==20){
+                        document.getElementById(idName[i]).style.top = '50%';
+                    }
+                    else if(i==21||i==22||i==23){
+                        document.getElementById(idName[i]).style.top = '55%';
+                    } 
+                }
+                
+            }
+            
+            
+            function settingPage(){
+                
+                deleteButton();
+                
+                position = 6;
+                
+                image.src = "images/setting.jpg";
+                var title = document.createElement("p");
+                document.body.appendChild(title);
+                title.setAttribute("id", "titles");
+                title.innerHTML = "SETTINGS";
+                var back = document.createElement("button");
+                document.body.appendChild(back);
+                back.setAttribute("class", "buttonStyle");
+                back.setAttribute("id", "settingBack");
+                back.setAttribute("onclick","delay(menuPage,500)");
+                back.innerHTML = "BACK";
+                
+                var idName = [
+                    "controlXX","controlYY","controlZZ",
+                    "ba","bb","bc",
+                    "ca","cb","cc",
+                    "da","db","dc",
+                    "ea","eb","ec",
+                ];
+                
+                var className = [
+                    "controlX","controlY","controlZ",
+                    "controlX","controlY","controlZ",
+                    "controlX","controlY","controlZ",
+                    "controlX","controlY","controlZ",
+                    "controlX","controlY","controlZ",
+                ];
+                
+                var content = [
+                    "CHANGE UI COLOR","GREY","RED",
+                    "CHANGE DIFFICULTY","EASY","HARD",
+                    "SHORTCUT SETTING","STYLE ONE","STYLE TWO",
+                    "LANGUAGE","ENGLISH","FRENCH",
+                    "HUD","FISRT PERSON","THIRD PERSON",
+                ];
+                
+                //contents
+                for(i=0;i<idName.length;i++){
+                    var p = document.createElement("p");
+                    document.body.appendChild(p);
+                    p.setAttribute("id", idName[i]);
+                    p.setAttribute("class", className[i]);
+                    p.innerHTML = content[i];
+                    
+                    if(i==0||i==1||i==2){
+                        document.getElementById(idName[i]).style.top = '20%';
+                    }
+                    else if(i==3||i==4||i==5){
+                        document.getElementById(idName[i]).style.top = '25%';
+                    }
+                    else if(i==6||i==7||i==8){
+                        document.getElementById(idName[i]).style.top = '30%';
+                    }
+                    else if(i==11||i==10||i==9){
+                        document.getElementById(idName[i]).style.top = '35%';
+                    }
+                    else if(i==12||i==13||i==14){
+                        document.getElementById(idName[i]).style.top = '40%';
+                    }
+                    else if(i==17||i==16||i==15){
+                        document.getElementById(idName[i]).style.top = '45%';
+                    }
+                    else if(i==18||i==19||i==20){
+                        document.getElementById(idName[i]).style.top = '50%';
+                    }
+                    else if(i==21||i==22||i==23){
+                        document.getElementById(idName[i]).style.top = '55%';
+                    } 
+                }
+                
+            }
+            
+            
+            function hudPage(){
+                deleteButton();
+                position = 7;
+				
+				image.src = "images/HUD1.jpg";
+            
+			
+			    var idName = [
+                    "hudGarageAA","hudGarageAB","hudGarageAC"
+                ];
+                
+                var className = [
+                    "buttonStyle","buttonStyle","buttonStyle"
+                ];
+				
+                
+                var content = [
+                    "First Person Perspective","Third Person Perspective",""
+                ];
+				var onclickMethod = [
+                    "changeimageFirst()","changeimageThird()",""
+                ];
+				
+				//back button
+                var back = document.createElement("button");
+                document.body.appendChild(back);
+                back.setAttribute("class", "buttonStyle");
+                back.setAttribute("id", "controlBack");
+                back.setAttribute("onclick","delay(menuPage(),500)");
+                back.innerHTML = "BACK";
+				// title
+				var menutitle = document.createElement("p");
+                document.body.appendChild(menutitle);
+                menutitle.setAttribute("id", "titles");
+                menutitle.innerHTML = "HUD";
+				
+				//contents
+                for(i=0;i<2;i++){
+                    var p = document.createElement("button");
+                    document.body.appendChild(p);
+                    p.setAttribute("id", idName[i]);
+                    p.setAttribute("class", className[i]);
+					p.setAttribute("onclick", onclickMethod[i]);
+                    p.innerHTML = content[i];
+                    
+                    if(i==0){
+                       document.getElementById(idName[i]).style.top = '50%';
+                       document.getElementById(idName[i]).style.left = '-30.0%';
+                    }
+                    else if(i==1){
+                       document.getElementById(idName[i]).style.top = '50%';
+                       document.getElementById(idName[i]).style.left = '30.0%';
+                    }
+                    
+                }
+            }
+            function changeimageFirst() {
+              image.src = "images/hud2.jpg";
+            }
+
+            function changeimageThird() {
+              image.src = "images/hud3.jpg";
+            }
+            
+            
+            function quitPage(){
+                deleteButton();
+                position = 8;
+                console.log(123123);
+                draw.fillStyle = "#000000";
+                draw.fillRect(0,0,912,570);
+                alert("THANKS FOR PLAYING!");
+            }
+			
+        </script>
+    </body>
+
+>>>>>>> Stashed changes
 </html>
