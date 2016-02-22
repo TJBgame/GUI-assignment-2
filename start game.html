@@ -541,7 +541,7 @@
                 document.body.appendChild(back);
                 back.setAttribute("class", "buttonStyle");
                 back.setAttribute("id", "controlBack");
-                back.setAttribute("onclick","delay(menuPage(),500)");
+                back.setAttribute("onclick","delay(menuPage,500)");
                 back.innerHTML = "BACK";
                 //title
 				var menutitle = document.createElement("p");
@@ -787,7 +787,7 @@
                     back.setAttribute("onclick", "delay(backToPause,500)");
                 }
                 else{
-                    back.setAttribute("onclick","delay(menuPage(),500)");
+                    back.setAttribute("onclick","delay(menuPage,500)");
                 }
                 back.innerHTML = "BACK";
 				// title
