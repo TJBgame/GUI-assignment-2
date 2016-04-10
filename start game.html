@@ -278,10 +278,28 @@
                 (
                     image,0,0,912,570
                 );
+                
+                if(position === 2){
+                    
+                    draw.fillStyle = "#FFFF00";
+		            draw.fillRect( 700, 500, 130, 30);
+                    
+                    draw.fillStyle = "rgb(255, 0, 0)"; 
+                    draw.font = "24px Helvetica"; 
+                    draw.textAlign = "left"; 
+                    draw.textBaseline = "top"; 
+                    draw.fillText("Speed: " + speed, 700, 500);
+                }
+                
+                requestAnimationFrame(loadHandler); 
             }
             
             
             // ---------------------------pages------------------------------
+            //Play page UI
+            var interval = setInterval(update, 100);
+            var speed = 0;
+            var keyDown;
             //pages
             var position = 0;
             var onPlay = false;
@@ -443,7 +461,8 @@
             }
             
             
-            window.addEventListener("keypress", pressed, false);
+            window.addEventListener("keydown", onKeyDown);
+            window.addEventListener("keyup", onKeyUp);
             
             function startPage(){
                 deleteButton();
@@ -452,7 +471,7 @@
                 image.src = "images/ingame.jpg";
             }
             
-            function pressed(e){
+            function onKeyDown(e){
                 if  (position == 2 &&  (e.keyCode === 122 || e.keyCode === 90 || e.keyCode === 27)){
                         image.src = "images/pause.jpg";
                         pausePage();
@@ -463,6 +482,31 @@
                 Use if(e.KeyCode === 12345){}
                 Put everything in if.
                 */
+                if(position ==2 && (e.keyCode ===38 || e.keyCode === 119 || e.keyCode ===87)){
+                    keyDown = true;
+                }
+            }
+            
+            function onKeyUp(e){
+                 if(position ==2 && (e.keyCode ===38 || e.keyCode === 119 || e.keyCode ===87)){
+                    keyDown = false;
+                }
+            }
+            
+            
+            function update(){
+                if(keyDown == true){
+                    if(speed < 348){
+                     speed = speed + 2;   
+                    }
+                }
+                
+                if(keyDown == false){
+                    if(speed >= 1){
+                     speed = speed - 1;   
+                    }
+                }
+                
             }
             
             
