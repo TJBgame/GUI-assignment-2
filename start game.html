@@ -291,6 +291,18 @@
                     draw.fillText("Speed: " + speed, 700, 500);
                 }
                 
+                if(position === 2){
+                    
+                    draw.fillStyle = "#210B61";
+		            draw.fillRect( 750, 100, 180, 30);
+                    
+                    draw.fillStyle = "rgb(255, 255, 255)"; 
+                    draw.font = "18px Helvetica"; 
+                    draw.textAlign = "left"; 
+                    draw.textBaseline = "top"; 
+                    draw.fillText("Remain Time: " + timeremain, 750, 100);
+                }
+                
                 requestAnimationFrame(loadHandler); 
             }
             
@@ -299,6 +311,7 @@
             //Play page UI
             var interval = setInterval(update, 100);
             var speed = 0;
+            var timeremain = 180;
             var keyDown;
             //pages
             var position = 0;
@@ -506,7 +519,9 @@
                      speed = speed - 1;   
                     }
                 }
-                
+                if (timeremain > 0){
+                timeremain = timeremain - 0.1;
+                }
             }
             
             
