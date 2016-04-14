@@ -312,7 +312,7 @@
                     draw.font = "17.5px Helvetica"; 
                     draw.textAlign = "left"; 
                     draw.textBaseline = "top"; 
-                    draw.fillText("progressbar: " + progress.toFixed(2)  + "%", 710, 166);
+                    draw.fillText("Progress:  " + progress.toFixed(2)  + "%", 710, 166);
 					
 					
                  }
@@ -573,8 +573,10 @@
                         }
                     }
 
-                    if (timeremain > 0){
+                    if (timeremain >= 0){
                     timeremain = timeremain - 0.1;
+                    }else{
+                        menuPage();
                     }
 
                     if (speed >= 0){
