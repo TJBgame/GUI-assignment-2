@@ -282,37 +282,37 @@
                 if(position === 2){
                     
                     draw.fillStyle = "#FFFF00";
-		            draw.fillRect( 700, 500, 130, 30);
+		            draw.fillRect( 700, 500, 140, 30);
                     
                     draw.fillStyle = "rgb(255, 0, 0)"; 
                     draw.font = "24px Helvetica"; 
                     draw.textAlign = "left"; 
                     draw.textBaseline = "top"; 
-                    draw.fillText("Speed: " + speed, 700, 500);
+                    draw.fillText("Speed: " + speed, 710, 500);
                 }
                 
                 if(position === 2){
                     
                     draw.fillStyle = "#210B61";
-		            draw.fillRect( 750, 100, 180, 30);
+		            draw.fillRect( 700, 100, 200, 30);
                     
                     draw.fillStyle = "rgb(255, 255, 255)"; 
                     draw.font = "18px Helvetica"; 
                     draw.textAlign = "left"; 
                     draw.textBaseline = "top"; 
-                    draw.fillText("Remain Time: " + timeremain, 750, 100);
+                    draw.fillText("Remain Time: " + timeremain.toFixed(2) + " s", 710, 100);
                 }
                 
                 if(position === 2){
                     
                     draw.fillStyle = "#FF0000";
-		            draw.fillRect( 750, 160, 180, 30);
+		            draw.fillRect( 700, 160, 200, 30);
                     
                     draw.fillStyle = "rgb(255, 255, 255)"; 
                     draw.font = "17.5px Helvetica"; 
                     draw.textAlign = "left"; 
                     draw.textBaseline = "top"; 
-                    draw.fillText("progressbar :  %" + progress, 750, 166);
+                    draw.fillText("progressbar: " + progress.toFixed(2)  + "%", 710, 166);
 					
 					
                  }
@@ -325,7 +325,7 @@
             //Play page UI
             var interval = setInterval(update, 100);
             var speed = 0;
-            var timeremain = 180;
+            var timeremain = 60;
             var keyDown;
             var progress = 0;
             //pages
@@ -462,8 +462,19 @@
                 setTimeout(menuPage, 270);
             }
             
+            function initialize(){
+                speed = 0;
+                timeremain = 60;
+                progress = 0;
+                keyDown = false;
+                startPage();
+            }
             
             function menuPage(){
+                speed = 0;
+                timeremain = 60;
+                progress = 0;
+                keyDown = false;
 			    
                 image.src = "images/menu.jpg";
                 onPlay = false;
@@ -523,33 +534,31 @@
             
             
             function update(){
-                if(keyDown == true){
-                    if(speed < 348){
-                     speed = speed + 2;   
+                if(position === 2){   
+                    if(keyDown == true){
+                        if(speed < 336){
+                         speed = speed + 7;   
+                        }
                     }
-                }
-                
-                if(keyDown == false){
-                    if(speed >= 1){
-                     speed = speed - 1;   
+
+                    if(keyDown == false){
+                        if(speed >= 1){
+                         speed = speed - 7;   
+                        }
                     }
-                }
-                if (timeremain > 0){
-                timeremain = timeremain - 0.1;
-                }
-                
-                if (speed >= 0){
-                progress = speed /1000 + progress;
-                }
-				
-				if(keyDown == true){
-                    if(speed < 10){
-                     progress = Progress + 0;   
+
+                    if (timeremain > 0){
+                    timeremain = timeremain - 0.1;
                     }
-                }
-				
-				if (progress >= 100){
-                progress = 100;
+
+                    if (speed >= 0){
+                    progress = speed /1000 + progress;
+                    }
+
+                    if (progress >= 100){
+                        progress = 100;
+                        menuPage();
+                    }
                 }
             }
             
@@ -573,7 +582,7 @@
                 document.body.appendChild(pauseButton1);
                 pauseButton1.setAttribute("class", "buttonStyle");
                 pauseButton1.setAttribute("id", "pauseRestartGame");
-                pauseButton1.setAttribute("onclick","delay(startPage,500)");
+                pauseButton1.setAttribute("onclick","delay(initialize,500)");
                 pauseButton1.innerHTML = "RESTART GAME";
                 var pauseButton2 = document.createElement("button");
                 document.body.appendChild(pauseButton2);
