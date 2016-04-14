@@ -303,6 +303,20 @@
                     draw.fillText("Remain Time: " + timeremain, 750, 100);
                 }
                 
+                if(position === 2){
+                    
+                    draw.fillStyle = "#FF0000";
+		            draw.fillRect( 750, 160, 180, 30);
+                    
+                    draw.fillStyle = "rgb(255, 255, 255)"; 
+                    draw.font = "17.5px Helvetica"; 
+                    draw.textAlign = "left"; 
+                    draw.textBaseline = "top"; 
+                    draw.fillText("progressbar :  %" + progress, 750, 166);
+					
+					
+                 }
+                
                 requestAnimationFrame(loadHandler); 
             }
             
@@ -313,6 +327,7 @@
             var speed = 0;
             var timeremain = 180;
             var keyDown;
+            var progress = 0;
             //pages
             var position = 0;
             var onPlay = false;
@@ -521,6 +536,20 @@
                 }
                 if (timeremain > 0){
                 timeremain = timeremain - 0.1;
+                }
+                
+                if (speed >= 0){
+                progress = speed /1000 + progress;
+                }
+				
+				if(keyDown == true){
+                    if(speed < 10){
+                     progress = Progress + 0;   
+                    }
+                }
+				
+				if (progress >= 100){
+                progress = 100;
                 }
             }
             
