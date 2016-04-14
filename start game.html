@@ -328,6 +328,8 @@
             var timeremain = 60;
             var keyDown;
             var progress = 0;
+            var pageTwo = 1;
+            var change = true;
             //pages
             var position = 0;
             var onPlay = false;
@@ -459,7 +461,7 @@
                 var canvas = document.getElementById("game");
                 canvas.style.display = 'none';
                 
-                setTimeout(menuPage, 270);
+                setTimeout(menuPage, 27000);
             }
             
             function initialize(){
@@ -502,12 +504,33 @@
             
             window.addEventListener("keydown", onKeyDown);
             window.addEventListener("keyup", onKeyUp);
+            window.addEventListener("keypress", onPress);
+            
+            function onPress(e){
+                if(position == 2 && (e.keyCode ===86 || e.keyCode === 118) && pageTwo == 1 && change){
+                    //image.src = "images/HUD2.jpg";
+                    change = false;
+                    pageTwo = 2;
+                    startPage();
+                }
+                if(position ==2 && (e.keyCode ===86 || e.keyCode === 118) && pageTwo == 2 && change){
+                    //image.src = "images/ingame.jpg";
+                    pageTwo = 1;
+                    change = false;
+                    startPage();
+                }
+            }
             
             function startPage(){
                 deleteButton();
                 position = 2;
                 onPlay = true;
-                image.src = "images/ingame.jpg";
+                if(pageTwo === 1){
+                    image.src = "images/ingame.jpg";
+                }
+                if(pageTwo === 2){
+                    image.src = "images/HUD2.jpg";
+                }
             }
             
             function onKeyDown(e){
@@ -529,6 +552,9 @@
             function onKeyUp(e){
                  if(position ==2 && (e.keyCode ===38 || e.keyCode === 119 || e.keyCode ===87)){
                     keyDown = false;
+                }
+                if(position ==2 && (e.keyCode ===86 || e.keyCode === 118) && !change){
+                    change = true;
                 }
             }
             
